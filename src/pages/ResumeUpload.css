@@ -1,0 +1,472 @@
+.resume-upload-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background-image: url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.resume-background-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.92),
+            rgba(15, 23, 42, 0.72)
+        );
+}
+
+.resume-upload-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 620px;
+}
+
+.resume-upload-card {
+    width: 100%;
+    padding: 42px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 22px;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.28),
+        0 8px 25px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(12px);
+}
+
+.resume-card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.resume-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: #101828;
+    color: #ffffff;
+    font-size: 27px;
+    box-shadow: 0 10px 25px rgba(16, 24, 40, 0.18);
+}
+
+.resume-label {
+    display: block;
+    margin-bottom: 9px;
+    color: #667085;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.resume-card-header h1 {
+    margin: 0;
+    color: #101828;
+    font-size: 30px;
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.resume-card-header p {
+    max-width: 500px;
+    margin: 12px auto 0;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.resume-form {
+    width: 100%;
+}
+
+.resume-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-bottom: 20px;
+    padding: 13px 15px;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.resume-alert i {
+    margin-top: 1px;
+    font-size: 16px;
+}
+
+.resume-alert-error {
+    background: #fef3f2;
+    border: 1px solid #fecdca;
+    color: #b42318;
+}
+
+.resume-alert-success {
+    background: #ecfdf3;
+    border: 1px solid #abefc6;
+    color: #067647;
+}
+
+.resume-dropzone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 245px;
+    padding: 35px 25px;
+    border: 2px dashed #d0d5dd;
+    border-radius: 15px;
+    background: #f9fafb;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.resume-dropzone:hover {
+    border-color: #98a2b3;
+    background: #f2f4f7;
+    transform: translateY(-1px);
+}
+
+.resume-dropzone.has-file {
+    border-color: #12b76a;
+    background: #f6fef9;
+}
+
+.resume-dropzone input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.upload-file-icon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #eaecf0;
+    color: #344054;
+    font-size: 25px;
+    box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
+}
+
+.resume-dropzone h3 {
+    margin: 0;
+    color: #101828;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.resume-dropzone p {
+    margin: 7px 0 5px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.file-types {
+    color: #98a2b3;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.selected-file-name {
+    max-width: 100%;
+    margin: 8px 0 !important;
+    color: #067647 !important;
+    font-size: 14px !important;
+    font-weight: 650;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.change-file {
+    color: #667085;
+    font-size: 12px;
+}
+
+.resume-requirements {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin: 20px 0 24px;
+}
+
+.requirement-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #667085;
+    font-size: 12px;
+}
+
+.requirement-item i {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ecfdf3;
+    color: #039855;
+    font-size: 11px;
+}
+
+.resume-upload-button {
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: none;
+    border-radius: 9px;
+    background: #101828;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(16, 24, 40, 0.18);
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.resume-upload-button:hover {
+    background: #1d2939;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(16, 24, 40, 0.22);
+}
+
+.resume-upload-button:active {
+    transform: translateY(0);
+}
+
+.resume-upload-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.resume-upload-button i {
+    font-size: 16px;
+}
+
+.button-spinner {
+    width: 17px;
+    height: 17px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: resume-spin 0.7s linear infinite;
+}
+
+.resume-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #eaecf0;
+    text-align: center;
+}
+
+.resume-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #667085;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.resume-back-link:hover {
+    color: #101828;
+}
+
+.resume-back-link i {
+    font-size: 13px;
+}
+
+.resume-auth-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background-image: url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.resume-auth-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.84);
+}
+
+.resume-auth-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+    padding: 42px;
+    background: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+}
+
+.resume-brand-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: #101828;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.resume-small-label {
+    display: block;
+    margin-bottom: 9px;
+    color: #667085;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.resume-auth-card h1 {
+    margin: 0;
+    color: #101828;
+    font-size: 28px;
+    font-weight: 750;
+}
+
+.resume-auth-card p {
+    margin: 13px 0 25px;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.resume-login-button {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 8px;
+    background: #101828;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.resume-login-button:hover {
+    background: #1d2939;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.resume-auth-card .resume-back-link {
+    margin-top: 22px;
+}
+
+@keyframes resume-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .resume-upload-page {
+        padding: 30px 16px;
+        align-items: flex-start;
+    }
+
+    .resume-upload-card {
+        padding: 30px 24px;
+        border-radius: 18px;
+    }
+
+    .resume-card-header h1 {
+        font-size: 26px;
+    }
+
+    .resume-dropzone {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-upload-page {
+        padding: 20px 12px;
+    }
+
+    .resume-upload-card {
+        padding: 26px 18px;
+    }
+
+    .resume-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 23px;
+    }
+
+    .resume-card-header h1 {
+        font-size: 23px;
+    }
+
+    .resume-card-header p {
+        font-size: 13px;
+    }
+
+    .resume-dropzone {
+        min-height: 205px;
+        padding: 25px 15px;
+    }
+
+    .resume-auth-card {
+        padding: 30px 22px;
+    }
+
+    .resume-auth-card h1 {
+        font-size: 24px;
+    }
+}

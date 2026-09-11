@@ -1,0 +1,946 @@
+/* =========================================
+   CREATE COMPANY PAGE
+   ========================================= */
+
+.create-company-page {
+    min-height: 100vh;
+    position: relative;
+    padding: 70px 20px 45px;
+    overflow-x: hidden;
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(3, 20, 42, 0.91),
+            rgba(8, 55, 105, 0.82)
+        ),
+        url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2200&q=85");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.create-company-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(13, 110, 253, 0.25),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(0, 174, 255, 0.18),
+            transparent 30%
+        );
+}
+
+.create-company-container {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.create-company-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 28px;
+    color: #ffffff;
+}
+
+.create-company-header-content {
+    max-width: 680px;
+}
+
+.create-company-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 7px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.10);
+    color: #8dc5ff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    backdrop-filter: blur(12px);
+}
+
+.create-company-label i {
+    font-size: 0.85rem;
+}
+
+.create-company-header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(2.1rem, 5vw, 3.3rem);
+    line-height: 1.1;
+    font-weight: 850;
+    letter-spacing: -1.5px;
+}
+
+.create-company-header p {
+    margin: 0;
+    max-width: 650px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* =========================================
+   BACK BUTTON
+   ========================================= */
+
+.create-company-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 0 17px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 700;
+    backdrop-filter: blur(14px);
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.create-company-back:hover {
+    background: #ffffff;
+    color: #0d6efd;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================
+   MAIN CARD
+   ========================================= */
+
+.create-company-card {
+    padding: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.32),
+        0 10px 35px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.create-company-intro {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 32px;
+    padding-bottom: 27px;
+    border-bottom: 1px solid #e7edf4;
+}
+
+.create-company-intro-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 17px;
+    background: linear-gradient(
+        135deg,
+        #0d6efd,
+        #084298
+    );
+    color: #ffffff;
+    font-size: 1.45rem;
+    box-shadow:
+        0 10px 25px rgba(13, 110, 253, 0.25);
+}
+
+.create-company-intro h2 {
+    margin: 0 0 5px;
+    color: #162033;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.create-company-intro p {
+    margin: 0;
+    color: #718096;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   ALERTS
+   ========================================= */
+
+.create-company-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 15px 17px;
+    border-radius: 13px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.create-company-alert > i {
+    margin-top: 2px;
+    font-size: 1.1rem;
+}
+
+.create-company-alert strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.create-company-alert.error {
+    border: 1px solid #f0b7be;
+    background: #fff5f6;
+    color: #a51d2d;
+}
+
+.create-company-alert.success {
+    border: 1px solid #a9dfc0;
+    background: #f1fff6;
+    color: #167447;
+}
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.create-company-form {
+    width: 100%;
+}
+
+.create-company-form-group {
+    margin-bottom: 25px;
+}
+
+.create-company-form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #1e293b;
+    font-size: 0.88rem;
+    font-weight: 750;
+}
+
+.create-company-form-group label > span {
+    margin-left: 3px;
+    color: #dc3545;
+}
+
+/* =========================================
+   INPUT WRAPPER
+   ========================================= */
+
+.create-company-input-wrapper {
+    position: relative;
+}
+
+.create-company-input-wrapper > i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7b8ba1;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.create-company-input-wrapper input {
+    padding-left: 46px !important;
+}
+
+.create-company-input-wrapper:focus-within > i {
+    color: #0d6efd;
+}
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.create-company-form-group input,
+.create-company-form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d9e1eb;
+    border-radius: 12px;
+    outline: none;
+    background: #f8fafc;
+    color: #182235;
+    font-family: inherit;
+    font-size: 0.94rem;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.create-company-form-group input {
+    height: 52px;
+    padding: 0 16px;
+}
+
+.create-company-form-group textarea {
+    min-height: 155px;
+    padding: 15px 16px;
+    resize: vertical;
+    line-height: 1.65;
+}
+
+.create-company-form-group input:hover,
+.create-company-form-group textarea:hover {
+    border-color: #b9c8da;
+    background: #ffffff;
+}
+
+.create-company-form-group input:focus,
+.create-company-form-group textarea:focus {
+    border-color: #0d6efd;
+    background: #ffffff;
+    box-shadow:
+        0 0 0 4px rgba(13, 110, 253, 0.10);
+}
+
+.create-company-form-group input::placeholder,
+.create-company-form-group textarea::placeholder {
+    color: #9aa6b5;
+}
+
+/* =========================================
+   TWO COLUMN
+   ========================================= */
+
+.create-company-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+/* =========================================
+   HELPER
+   ========================================= */
+
+.create-company-helper {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 8px;
+    color: #7b8797;
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+.create-company-helper i {
+    color: #0d6efd;
+}
+
+/* =========================================
+   LOGO UPLOAD
+   ========================================= */
+
+.create-company-logo-upload {
+    position: relative;
+    overflow: hidden;
+    border: 2px dashed #cbd7e5;
+    border-radius: 17px;
+    background: #f8fafc;
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.create-company-logo-upload:hover {
+    border-color: #0d6efd;
+    background: #f4f8ff;
+}
+
+.logo-upload-label {
+    min-height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.create-company-logo-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background: rgba(13, 110, 253, 0.10);
+    color: #0d6efd;
+    font-size: 1.65rem;
+}
+
+.logo-upload-label strong {
+    margin-bottom: 5px;
+    color: #273449;
+    font-size: 0.98rem;
+    font-weight: 800;
+}
+
+.logo-upload-label > span {
+    margin-bottom: 7px;
+    color: #0d6efd;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.logo-upload-label small {
+    color: #8793a3;
+    font-size: 0.76rem;
+}
+
+/* =========================================
+   HIDDEN FILE INPUT
+   ========================================= */
+
+.logo-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================================
+   LOGO PREVIEW
+   ========================================= */
+
+.create-company-logo-preview {
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+}
+
+.logo-preview-image-wrapper {
+    width: 125px;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid #dce4ed;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.logo-preview-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-preview-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.logo-preview-info strong {
+    margin-bottom: 6px;
+    color: #253247;
+    font-size: 0.98rem;
+}
+
+.logo-preview-info span {
+    overflow: hidden;
+    color: #59677a;
+    font-size: 0.84rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logo-preview-info small {
+    margin-top: 6px;
+    color: #8793a3;
+    font-size: 0.76rem;
+}
+
+.change-logo-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 42px;
+    padding: 0 14px;
+    flex-shrink: 0;
+    border: 1px solid #cdd8e6;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #0d6efd;
+    font-size: 0.82rem;
+    font-weight: 750;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.change-logo-button:hover {
+    border-color: #0d6efd;
+    background: #0d6efd;
+    color: #ffffff;
+}
+
+/* =========================================
+   SUBMIT AREA
+   ========================================= */
+
+.create-company-submit-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-top: 35px;
+    padding-top: 27px;
+    border-top: 1px solid #e7edf4;
+}
+
+.create-company-security {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    max-width: 390px;
+    color: #788598;
+    font-size: 0.79rem;
+    line-height: 1.45;
+}
+
+.create-company-security i {
+    margin-top: 1px;
+    color: #198754;
+    font-size: 1rem;
+}
+
+.create-company-submit-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* =========================================
+   CANCEL
+   ========================================= */
+
+.create-company-cancel {
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border: 1px solid #d6dee8;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #526174;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.create-company-cancel:hover {
+    border-color: #adb9c8;
+    background: #f7f9fb;
+    color: #253247;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+   ========================================= */
+
+.create-company-submit {
+    min-width: 190px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #0d6efd,
+        #0755c9
+    );
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow:
+        0 10px 25px rgba(13, 110, 253, 0.25);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.create-company-submit:hover:not(:disabled) {
+    background: linear-gradient(
+        135deg,
+        #0b5ed7,
+        #0646aa
+    );
+    transform: translateY(-2px);
+    box-shadow:
+        0 14px 30px rgba(13, 110, 253, 0.32);
+}
+
+.create-company-submit:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.create-company-submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* =========================================
+   SPINNER
+   ========================================= */
+
+.create-company-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: createCompanySpin 0.7s linear infinite;
+}
+
+@keyframes createCompanySpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.create-company-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 22px;
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 0.78rem;
+}
+
+.create-company-footer span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.create-company-footer i {
+    color: #8ec5ff;
+}
+
+/* =========================================
+   LOGIN PAGE
+   ========================================= */
+
+.create-company-login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(3, 20, 42, 0.90),
+            rgba(8, 55, 105, 0.82)
+        ),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.create-company-login-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 45px 35px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.97);
+    text-align: center;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(18px);
+}
+
+.create-company-login-icon {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(13, 110, 253, 0.10);
+    color: #0d6efd;
+    font-size: 1.8rem;
+}
+
+.create-company-login-card h1 {
+    margin: 0 0 10px;
+    color: #172033;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.create-company-login-card p {
+    margin: 0 0 25px;
+    color: #718096;
+    line-height: 1.6;
+}
+
+.create-company-login-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 140px;
+    height: 48px;
+    padding: 0 22px;
+    border-radius: 10px;
+    background: #0d6efd;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 750;
+    transition: all 0.2s ease;
+}
+
+.create-company-login-button:hover {
+    background: #084298;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+    .create-company-page {
+        padding: 50px 16px 35px;
+    }
+
+    .create-company-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .create-company-back {
+        align-self: flex-start;
+    }
+
+    .create-company-card {
+        padding: 32px 27px;
+    }
+
+    .create-company-submit-area {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .create-company-security {
+        max-width: 100%;
+    }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+    .create-company-page {
+        padding: 35px 12px 25px;
+        background-attachment: scroll;
+    }
+
+    .create-company-header {
+        margin-bottom: 20px;
+    }
+
+    .create-company-header h1 {
+        font-size: 2.25rem;
+    }
+
+    .create-company-header p {
+        font-size: 0.9rem;
+    }
+
+    .create-company-card {
+        padding: 25px 20px;
+        border-radius: 19px;
+    }
+
+    .create-company-intro {
+        align-items: flex-start;
+    }
+
+    .create-company-intro-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        font-size: 1.2rem;
+    }
+
+    .create-company-intro h2 {
+        font-size: 1.1rem;
+    }
+
+    .create-company-intro p {
+        font-size: 0.82rem;
+    }
+
+    .create-company-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .create-company-logo-preview {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .change-logo-button {
+        width: 100%;
+    }
+
+    .create-company-submit-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .create-company-cancel,
+    .create-company-submit {
+        width: 100%;
+    }
+
+    .create-company-footer {
+        gap: 12px 18px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 430px) {
+    .create-company-page {
+        padding: 25px 10px 20px;
+    }
+
+    .create-company-header h1 {
+        font-size: 1.9rem;
+    }
+
+    .create-company-header p {
+        font-size: 0.85rem;
+    }
+
+    .create-company-back {
+        width: 100%;
+    }
+
+    .create-company-card {
+        padding: 21px 15px;
+    }
+
+    .create-company-intro {
+        gap: 12px;
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+    }
+
+    .create-company-intro-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .create-company-form-group input {
+        height: 49px;
+    }
+
+    .create-company-form-group textarea {
+        min-height: 135px;
+    }
+
+    .logo-upload-label {
+        min-height: 205px;
+        padding: 18px 10px;
+    }
+
+    .create-company-logo-preview {
+        padding: 18px 14px;
+        gap: 15px;
+    }
+
+    .logo-preview-image-wrapper {
+        width: 95px;
+        height: 95px;
+    }
+
+    .create-company-submit {
+        height: 49px;
+    }
+
+    .create-company-cancel {
+        height: 49px;
+    }
+
+    .create-company-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}

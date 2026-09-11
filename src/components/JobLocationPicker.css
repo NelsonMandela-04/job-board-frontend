@@ -1,0 +1,116 @@
+.job-location-picker {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.location-search-section {
+    width: 100%;
+}
+
+.location-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.required {
+    margin-left: 4px;
+    color: #dc2626;
+}
+
+.google-autocomplete-container {
+    width: 100%;
+}
+
+.google-autocomplete-container
+gmp-place-autocomplete {
+    display: block;
+    width: 100%;
+}
+
+.location-loading {
+    margin-top: 8px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.location-error {
+    margin-top: 10px;
+    padding: 12px 14px;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #b91c1c;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.selected-location {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    background: #f0fdf4;
+}
+
+.selected-location-title {
+    margin-bottom: 6px;
+    color: #166534;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.selected-location-address {
+    color: #14532d;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.coordinates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+    color: #166534;
+    font-size: 12px;
+}
+
+.job-map-container {
+    width: 100%;
+    height: 350px;
+    margin-top: 15px;
+    overflow: hidden;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+}
+
+.job-map-container > div {
+    width: 100%;
+    height: 100%;
+}
+
+.location-help {
+    margin-top: 8px;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .job-map-container {
+        height: 280px;
+    }
+
+    .coordinates {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .job-map-container {
+        height: 240px;
+    }
+}
