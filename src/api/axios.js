@@ -6,12 +6,30 @@ const api = axios.create({
 
 api.interceptors.request.use(
     (config) => {
-        const token =
-            localStorage.getItem("token");
+        console.log("AXIOS REQUEST DATA:", config.data);
 
-        if (token) {
-            config.headers.Authorization =
-                `Token ${token}`;
+        const publicEndpoints = [
+            "password-reset/",
+            "password-reset-confirm/",
+            "login/",
+            "register/",
+        ];
+
+        const isPublicEndpoint =
+            publicEndpoints.some((endpoint) =>
+                config.url?.includes(endpoint)
+            );
+
+        if (!isPublicEndpoint) {
+            const token =
+                localStorage.getItem("token");
+
+            if (token) {
+                config.headers.Authorization =
+                    `Token ${token}`;
+            } else {
+                delete config.headers.Authorization;
+            }
         } else {
             delete config.headers.Authorization;
         }
@@ -77,3 +95,4 @@ api.interceptors.response.use(
 );
 
 export default api;
+

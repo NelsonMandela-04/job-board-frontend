@@ -1,31 +1,22 @@
+
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
 import api from "../api/axios";
 import { getErrorMessage } from "../utils/errorHandler";
-
 import "./ResetPassword.css";
-
 
 function ResetPassword() {
     const { uid, token } = useParams();
-
     const navigate = useNavigate();
 
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-
     const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] =
-        useState(false);
-
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [loading, setLoading] = useState(false);
-
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
-
     const [success, setSuccess] = useState(false);
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -34,62 +25,57 @@ function ResetPassword() {
         setError("");
 
         if (!uid || !token) {
-            setError(
-                "This password reset link is invalid."
-            );
+            setError("This password reset link is invalid.");
             return;
         }
 
         if (!password) {
-            setError(
-                "Please enter a new password."
-            );
+            setError("Please enter a new password.");
             return;
         }
 
         if (password.length < 8) {
-            setError(
-                "Password must be at least 8 characters long."
-            );
+            setError("Password must be at least 8 characters long.");
             return;
         }
 
         if (!confirmPassword) {
-            setError(
-                "Please confirm your new password."
-            );
+            setError("Please confirm your new password.");
             return;
         }
 
         if (password !== confirmPassword) {
-            setError(
-                "The passwords do not match."
-            );
+            setError("The passwords do not match.");
             return;
         }
 
         setLoading(true);
 
         try {
+            console.log("RESET REQUEST:", {
+                uid: uid,
+                token: token,
+                password: password
+            });
+
             const response = await api.post(
                 "password-reset-confirm/",
                 {
                     uid: uid,
                     token: token,
-                    new_password: password,
+                    password: password
                 }
             );
 
             setMessage(
+                response.data?.detail ||
                 response.data?.message ||
                 "Your password has been changed successfully."
             );
 
             setSuccess(true);
-
             setPassword("");
             setConfirmPassword("");
-
         } catch (err) {
             setError(
                 getErrorMessage(
@@ -102,25 +88,16 @@ function ResetPassword() {
         }
     };
 
-
     const handleGoToLogin = () => {
         navigate("/login");
     };
 
-
     return (
         <div className="reset-password-page">
-
-            {/* =================================================
-                LEFT BRANDING SECTION
-            ================================================= */}
-
             <section className="reset-password-brand">
-
                 <div className="reset-brand-content">
-
                     <div className="reset-brand-logo">
-                      Ezitech Technologies JB
+                        Ezitech Technologies JB
                     </div>
 
                     <h1>
@@ -134,7 +111,6 @@ function ResetPassword() {
                     </p>
 
                     <div className="reset-brand-features">
-
                         <div className="reset-brand-feature">
                             <span className="reset-feature-icon">
                                 <i className="bi bi-check-circle-fill"></i>
@@ -164,26 +140,13 @@ function ResetPassword() {
                                 Get back to your job search
                             </span>
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
 
-
-            {/* =================================================
-                RIGHT RESET PASSWORD SECTION
-            ================================================= */}
-
             <section className="reset-password-form-section">
-
                 <div className="reset-password-card">
-
-                    {/* Mobile Brand */}
-
                     <div className="reset-mobile-brand">
-
                         <div className="reset-mobile-logo">
                             JB
                         </div>
@@ -191,18 +154,10 @@ function ResetPassword() {
                         <span>
                             Job Board
                         </span>
-
                     </div>
 
-
-                    {/* =================================================
-                        SUCCESS STATE
-                    ================================================= */}
-
                     {success ? (
-
                         <div className="reset-success-container">
-
                             <div className="reset-success-icon">
                                 <i className="bi bi-check-circle-fill"></i>
                             </div>
@@ -231,18 +186,10 @@ function ResetPassword() {
                             >
                                 Return to Home
                             </Link>
-
                         </div>
-
                     ) : (
-
                         <>
-                            {/* =================================================
-                                HEADER
-                            ================================================= */}
-
                             <div className="reset-form-header">
-
                                 <div className="reset-lock-icon">
                                     <i className="bi bi-shield-lock-fill"></i>
                                 </div>
@@ -256,17 +203,10 @@ function ResetPassword() {
                                     your account. Make sure it is
                                     at least 8 characters long.
                                 </p>
-
                             </div>
-
-
-                            {/* =================================================
-                                ERROR MESSAGE
-                            ================================================= */}
 
                             {error && (
                                 <div className="reset-error-message">
-
                                     <span className="reset-message-icon">
                                         !
                                     </span>
@@ -274,18 +214,11 @@ function ResetPassword() {
                                     <span>
                                         {error}
                                     </span>
-
                                 </div>
                             )}
 
-
-                            {/* =================================================
-                                SUCCESS MESSAGE
-                            ================================================= */}
-
                             {message && !success && (
                                 <div className="reset-success-message">
-
                                     <span className="reset-message-icon">
                                         <i className="bi bi-check-circle-fill"></i>
                                     </span>
@@ -293,30 +226,19 @@ function ResetPassword() {
                                     <span>
                                         {message}
                                     </span>
-
                                 </div>
                             )}
-
-
-                            {/* =================================================
-                                FORM
-                            ================================================= */}
 
                             <form
                                 onSubmit={handleSubmit}
                                 className="reset-password-form"
                             >
-
-                                {/* New Password */}
-
                                 <div className="reset-form-group">
-
                                     <label htmlFor="password">
                                         New password
                                     </label>
 
                                     <div className="reset-password-input-wrapper">
-
                                         <input
                                             id="password"
                                             type={
@@ -354,22 +276,15 @@ function ResetPassword() {
                                                 ? "Hide"
                                                 : "Show"}
                                         </button>
-
                                     </div>
-
                                 </div>
 
-
-                                {/* Confirm Password */}
-
                                 <div className="reset-form-group">
-
                                     <label htmlFor="confirmPassword">
                                         Confirm new password
                                     </label>
 
                                     <div className="reset-password-input-wrapper">
-
                                         <input
                                             id="confirmPassword"
                                             type={
@@ -407,16 +322,10 @@ function ResetPassword() {
                                                 ? "Hide"
                                                 : "Show"}
                                         </button>
-
                                     </div>
-
                                 </div>
 
-
-                                {/* Password Requirements */}
-
                                 <div className="password-requirements">
-
                                     <div className="requirements-title">
                                         Password requirements
                                     </div>
@@ -449,7 +358,9 @@ function ResetPassword() {
                                         }
                                     >
                                         <span>
-                                            {password && confirmPassword && password === confirmPassword ? (
+                                            {password &&
+                                            confirmPassword &&
+                                            password === confirmPassword ? (
                                                 <i className="bi bi-check-circle-fill"></i>
                                             ) : (
                                                 <i className="bi bi-circle"></i>
@@ -458,18 +369,13 @@ function ResetPassword() {
 
                                         Passwords match
                                     </div>
-
                                 </div>
-
-
-                                {/* Submit */}
 
                                 <button
                                     type="submit"
                                     className="reset-submit-button"
                                     disabled={loading}
                                 >
-
                                     {loading ? (
                                         <>
                                             <span className="reset-spinner"></span>
@@ -478,16 +384,10 @@ function ResetPassword() {
                                     ) : (
                                         "Change password"
                                     )}
-
                                 </button>
-
                             </form>
 
-
-                            {/* Back to Login */}
-
                             <div className="reset-back-login">
-
                                 <Link to="/login">
                                     <span>
                                         <i className="bi bi-arrow-left"></i>
@@ -495,20 +395,14 @@ function ResetPassword() {
 
                                     Back to Login
                                 </Link>
-
                             </div>
-
                         </>
-
                     )}
-
                 </div>
-
             </section>
-
         </div>
     );
 }
 
-
 export default ResetPassword;
+
