@@ -28,7 +28,7 @@ import CreateJob from "./pages/CreateJob";
 import EmployerApplications from "./pages/EmployerApplications";
 
 import AdminDashboard from "./pages/AdminDashboard";
-import AdminJobs from "./pages/AdminJobs";
+import AdminJobs from "./pages/adminJobs";
 import AdminUsers from "./pages/AdminUsers";
 import AdminCompanies from "./pages/AdminCompanies";
 import AdminApplications from "./pages/AdminApplications";
